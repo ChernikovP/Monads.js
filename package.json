@@ -1,0 +1,23 @@
+{
+  "name": "monads.js",
+  "version": "0.0.1",
+  "description": "Common Monads for JavaScript",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha src/tests/**/*.spec.js --compilers js:babel-core/register"
+  },
+  "author": "Pavel Chernikov",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.11.4",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.1.1",
+    "eslint-loader": "^1.4.1",
+    "mocha": "^2.5.3",
+    "webpack": "^1.13.1"
+  }
+}
