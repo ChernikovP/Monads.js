@@ -3,7 +3,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry: __dirname + '/src/main/javascript/index.js',
+  entry: __dirname + '/src/main/index.js',
   output: {
     path: __dirname + '/dist',
     filename: 'monads.js'
