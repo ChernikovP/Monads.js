@@ -2,11 +2,21 @@
 
 const webpack = require('webpack');
 
+const env = process.env.NODE_ENV;
+
+const plugins = [new webpack.NoErrorsPlugin()];
+
+if (env === 'production')
+  plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: true }));
+
 module.exports = {
   entry: __dirname + '/src/main/index.js',
   output: {
     path: __dirname + '/dist',
-    filename: 'monads.js'
+    filename: 'monads.js',
+    library: 'M',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
 
   devtool: 'source-map',
