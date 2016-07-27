@@ -17,6 +17,10 @@ class None extends _Option {
     return this;
   }
 
+  filter(pred) {
+    return this;
+  }
+
   toString() {
     return 'None';
   }

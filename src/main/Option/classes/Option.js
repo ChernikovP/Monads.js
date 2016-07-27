@@ -15,7 +15,7 @@ class _Option {
   }
 
   get value() {
-    if (this.isEmpty) throw new TypeError('None.get()');
+    if (this.isEmpty) throw new TypeError('None.value');
 
     return this._value;
   }
@@ -24,26 +24,20 @@ class _Option {
     return this.isEmpty ? this : func(this.value);
   }
 
-  filter(pred) {
-    if (this.isEmpty) return this;
-
-    return pred(this.value) ? this : None;
-  }
-
   forEach(func) {
-    if (this.isDefined) func(this.value);
+    if (!this.isEmpty) func(this.value);
   }
 
-  getOrElse(defaultValue) {
-    return this.isEmpty ? defaultValue : this.value;
+  getOrElse(alternativeValue) {
+    return this.isEmpty ? alternativeValue : this.value;
   }
 
-  orElse(defaultOption) {
-    return this.isEmpty ? defaultOption : this;
+  orElse(alternativeOption) {
+    return this.isEmpty ? alternativeOption : this;
   }
 
   orNull() {
-    return this.isEmpty ? null : this.value;
+    return this.getOrElse(null);
   }
 }
 

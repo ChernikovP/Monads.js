@@ -3,6 +3,8 @@
 import _Option from './Option';
 import None from './None';
 
+import isNil from '../../utils/isNil';
+
 class Some extends _Option {
   constructor(value) {
     super();
@@ -20,6 +22,10 @@ class Some extends _Option {
     const mappedValue = func(this.value);
 
     return isNil(mappedValue) ? None : new Some(mappedValue);
+  }
+
+  filter(pred) {
+    return pred(this.value) ? this : None;
   }
 
   toString() {

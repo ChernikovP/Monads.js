@@ -1,6 +1,6 @@
 'use strict';
 
-import {expect} from 'chai';
+import { expect } from 'chai';
 
 import { Some, None, Option } from '../../main/Option';
 
@@ -55,11 +55,15 @@ describe('Option', function() {
 
       const some = new Some(1);
 
-      expect(None.flatMap(inc).flatMap(x2)).to.equal(None.flatMap(x => inc(x).flatMap(x2)));
-      expect(some.flatMap(inc).flatMap(x2).value).to.equal(some.flatMap(x => inc(x).flatMap(x2)).value);
+      expect(None.flatMap(inc).flatMap(x2))
+        .to.equal(None.flatMap((x) => inc(x).flatMap(x2)));
+      expect(some.flatMap(inc).flatMap(x2).value)
+        .to.equal(some.flatMap((x) => inc(x).flatMap(x2)).value);
 
-      expect(some.flatMap(none).flatMap(x2)).to.equal(some.flatMap(x => none(x).flatMap(x2)));
-      expect(some.flatMap(inc).flatMap(none)).to.equal(some.flatMap(x => inc(x).flatMap(none)));
+      expect(some.flatMap(none).flatMap(x2))
+        .to.equal(some.flatMap((x) => none(x).flatMap(x2)));
+      expect(some.flatMap(inc).flatMap(none))
+        .to.equal(some.flatMap((x) => inc(x).flatMap(none)));
     });
   });
 });
