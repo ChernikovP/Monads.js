@@ -7,7 +7,11 @@ const env = process.env.NODE_ENV;
 const plugins = [new webpack.NoErrorsPlugin()];
 
 if (env === 'production')
-  plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: true }));
+  plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: { warnings: false, drop_console: true }
+    })
+  );
 
 module.exports = {
   entry: __dirname + '/src/main/index.js',
@@ -54,7 +58,5 @@ module.exports = {
     extensions: ['', '.js']
   },
 
-  plugins: [
-    new webpack.NoErrorsPlugin()
-  ]
+  plugins: plugins
 };
